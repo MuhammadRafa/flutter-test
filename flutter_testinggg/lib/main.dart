@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: const LoginPage(),
     );
   }
@@ -23,14 +23,22 @@ class LoginPage extends StatelessWidget {
 
   void _doLogin(BuildContext context, String username, String password) {
     if (username == 'admin' && password == '12345') {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (_) => const DashboardPage(),
-        ),
+      // ✅ tampilkan snackbar login berhasil
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Login berhasil")),
       );
+
+      // kasih delay 1 detik biar snackbar sempat muncul
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const DashboardPage(),
+          ),
+        );
+      });
     } else {
-      // kalau salah tampilkan snackbar error
+      // ❌ kalau salah tampilkan snackbar error
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Username atau password salah")),
       );

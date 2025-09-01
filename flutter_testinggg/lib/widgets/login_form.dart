@@ -50,11 +50,11 @@ class _LoginFormState extends State<LoginForm> {
             children: [
               // Judul login
               const Text(
-                'Welcome Back 👋',
+                'Welcome Back',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF009688), // Tosca
+                  color: Colors.deepPurple,
                 ),
               ),
               const SizedBox(height: 8),
@@ -74,10 +74,10 @@ class _LoginFormState extends State<LoginForm> {
                 controller: userController,
                 decoration: InputDecoration(
                   hintText: 'Username or Email',
-                  prefixIcon:
-                      const Icon(Icons.person_outline, color: Color(0xFF009688)),
+                  prefixIcon: const Icon(Icons.person_outline,
+                      color: Colors.deepPurple),
                   filled: true,
-                  fillColor: const Color(0xFFF5F5F5), // abu muda
+                  fillColor: Colors.grey[50],
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                   border: OutlineInputBorder(
@@ -97,9 +97,9 @@ class _LoginFormState extends State<LoginForm> {
                 decoration: InputDecoration(
                   hintText: 'Password',
                   prefixIcon:
-                      const Icon(Icons.lock_outline, color: Color(0xFF009688)),
+                      const Icon(Icons.lock_outline, color: Colors.deepPurple),
                   filled: true,
-                  fillColor: const Color(0xFFF5F5F5),
+                  fillColor: Colors.grey[50],
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                   border: OutlineInputBorder(
@@ -118,38 +118,20 @@ class _LoginFormState extends State<LoginForm> {
                   key: const Key('login_button'),
                   onPressed: _handleLogin,
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     elevation: 3,
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Colors.white,
-                  ).copyWith(
-                    backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => null,
-                    ),
                   ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF009688), Color(0xFF4DD0E1)],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      child: const Text(
-                        'LOGIN',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                        ),
-                      ),
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
                     ),
                   ),
                 ),
